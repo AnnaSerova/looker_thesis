@@ -27,7 +27,7 @@ view: sf_crime_original {
     sql: ${TABLE}.dayofweek ;;
   }
 
-  dimension: pddistrict {
+  dimension: police_district {
     type: string
     sql: ${TABLE}.pddistrict ;;
   }
@@ -53,8 +53,9 @@ view: sf_crime_original {
   }
 
   dimension: location {
-    type: string
-    sql: ${TABLE}.location ;;
+    type: location
+    sql_latitude: ${latitude} ;;
+    sql_longitude: ${longitude} ;;
   }
 
   dimension: pdid {
@@ -73,7 +74,7 @@ view: sf_crime_original {
       category,
       descript,
       dayofweek,
-      pddistrict,
+      police_district,
       resolution,
       address,
       longitude,
